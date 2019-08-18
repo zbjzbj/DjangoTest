@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    {% load my_filter %}
+    {% block page-css %}
+    
+    {% endblock %}
 </head>
 <body>
-{{ name|new_filter }}
+<p>模板内容</p>
+{% block page-main %}
+
+{% endblock %}
+<p>引入JS</p>
+{% block page-js %}
+
+{% endblock %}
 </body>
 </html>

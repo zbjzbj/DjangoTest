@@ -18,6 +18,6 @@ from django.contrib import admin
 from app01.views import tem
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^test/', tem),
+    # url(r'^admin/', admin.site.urls),
+    url(r'', tem),
 ]

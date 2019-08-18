@@ -1,0 +1,25 @@
+{% extends "tmp.html" %}
+
+{% block page-css %}
+    {% load static %}
+    <link rel="stylesheet" href={% static "bootstrap-3.3.7/css/bootstrap.min.css" %}>
+{% endblock %}
+
+{% block page-main %}
+<p>子页面内容</p>
+    {% load my_filter %}
+    {{ name| new_filter:"哈哈"}}
+    {% include "element.html" %}
+    <br>
+    {% load my_extends %}
+    <link rel="stylesheet" href="{% my_static "bootstrap-3.3.7/css/bootstrap.css" %}">
+    <br>
+    {% inclusion 5 %}
+{% endblock %}
+
+{% block page-js %}
+    <script src="{% my_static "jQuery/jQuery.js" %}"></script>
+    <script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+{% endblock %}
+
+

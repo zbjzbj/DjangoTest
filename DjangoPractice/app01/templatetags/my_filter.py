@@ -4,5 +4,5 @@ register = template.Library()
 
 
 @register.filter()
-def new_filter(value):
-    return value + "sb"
+def new_filter(value, v=""):
+    return value + "sb" + v
