@@ -35,3 +35,37 @@ class Userinfo(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Publisher(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.name
+
+
+class Book(models.Model):
+    id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=20)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    publisher = models.ForeignKey(to='Publisher', related_name='books', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
+
+
+class Author(models.Model):
+    name = models.CharField(max_length=12)  # 姓名
+    gender = models.SmallIntegerField(choices=((1, '男'), (2, '女'), (3, '保密')), default=3)  # 性别
+    books = models.ManyToManyField(to='Book')  # 作品
+    info = models.OneToOneField(to='AuthorInfo')  # 详细信息
+
+    def __str__(self):
+        return self.name
+
+# 作者详细信息表
+class AuthorInfo(models.Model):
+    city = models.CharField(max_length=12)  # 住址
+    is_marry = models.BooleanField()  # 婚否
+    income = models.BigIntegerField()  # 收入
