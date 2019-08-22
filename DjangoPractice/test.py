@@ -133,39 +133,85 @@ if __name__ == '__main__':
 
     # 热身：普通的values的使用
     # 查询第一本书的名称
-    ret = Book.objects.filter(id=2).values('title')
+    # ret = Book.objects.filter(id=2).values('title')
+    # print(ret)
+    #
+    # # 使用：外键基于QuerySet跨表查询
+    # # 查询第一本书关联的出版社名称(__表示跨表查询)(正向查找)
+    # # valuse('publisher')表示通过外键找到了publisher表，__表示跨表取到publisher表的字段的值
+    # ret = Book.objects.filter(id=2).values('publisher__name')
+    # print(ret)
+    #
+    # # 反向查找
+    # # 查询id=2的出版社的所有书的名称和价格
+    # ret = Publisher.objects.filter(id=2).values_list('books__title', 'books__price')
+    # print(ret)
+    #
+    # # 一对一基于QuerySet跨表查询
+    # # 查询id=2的作者婚否(正向查找)
+    # ret = Author.objects.filter(id=2).values('info__is_marry')
+    # print(ret)
+    #
+    # # 查找住在深圳的作者的姓名(反向查找)
+    # ret = AuthorInfo.objects.filter(city='惠州').values('author__name')
+    # print(ret)
+    #
+    # # 多对多基于QuerySet跨表查询
+    # # 查询id=2的作者关联的所有数据的名称和价格(正向查找)
+    # ret = Author.objects.filter(id=2).values('books__title', 'books__price')
+    # print(ret)
+    #
+    # # 查找id=2的作者的名字(反向查找)
+    # ret = Book.objects.filter(id=2).values('author__name')
+    # print(ret)
+    #
+    # # 链式查询
+    # # 查找id=2的书的作者的城市
+    # ret = Book.objects.filter(id=2).values('author__info__city')
+    # print(ret)
+
+    """基于对象的跟新(save)和基于QuerySet的update跟新的区别"""
+    # 1. 基于对象的修改(会跟新所有字段，效率慢)
+    # publisher_obj = Publisher.objects.get(name='牛哥出版社')
+    # publisher_obj.name = '牛牛出版社'
+    # publisher_obj.save()
+
+    # 2. 基于QuerySet的update跟新(只跟新指定的字段，效率快于基于对象的修改)
+    # publisher_obj = Publisher.objects.all().update(name="小健出版社")
+    # Publisher.objects.filter(id=2).update(name='牛仔出版社')
+
+    """
+    聚合查询,ORM的聚合函数一定要搭配aggregate或者annotate使用
+    aggregate()是基于QuerySet进行计算的，相当于整个QuerySet是一组，然后使用聚合函数即可。
+    annotate前面查询(values)的是什么，就按什么分组，没有values就默认按id分组，
+    而id是唯一的，因此不写values等于没有分组
+    """
+    # from django.db.models import Avg, Sum, Max, Min, Count
+
+    # 求所有书中价格最高的书
+    # ret = Book.objects.all().aggregate(Max('price'))
+    # print(ret)  # {'price__max': Decimal('7777.78')}
+    #
+    # # 为聚合值指定一个名称，返回指定的key值
+    # ret = Book.objects.all().aggregate(max_price=Max('price'))
+    # print(ret)  # {'max_price': Decimal('7777.78')}
+    #
+    # ret = Book.objects.filter(id__gte=3).aggregate(avg_price=Avg('price'), min_price=Min('price'))
+    # print(ret)  # {'avg_price': 7222.225, 'min_price': Decimal('6666.67')}
+
+
+    from django.db.models import Avg, Sum, Max, Min, Count
+    # 使用ORM查询每个部门的平均工资
+    ret = Employee.objects.all().values('dept').annotate(avg=Avg('salary'))
     print(ret)
 
-    # 使用：外键基于QuerySet跨表查询
-    # 查询第一本书关联的出版社名称(__表示跨表查询)(正向查找)
-    # valuse('publisher')表示通过外键找到了publisher表，__表示跨表取到publisher表的字段的值
-    ret = Book.objects.filter(id=2).values('publisher__name')
+    ret = Employee.objects.annotate(avg=Avg('salary')).values('dept', 'avg')
+    print(ret)  # 等于没有分组
+
+    # 每个部门的平均年龄
+    ret = Employee.objects.all().values('dept').annotate(avg=Avg('age'))
     print(ret)
 
-    # 反向查找
-    # 查询id=2的出版社的所有书的名称和价格
-    ret = Publisher.objects.filter(id=2).values_list('books__title', 'books__price')
-    print(ret)
 
-    # 一对一基于QuerySet跨表查询
-    # 查询id=2的作者婚否(正向查找)
-    ret = Author.objects.filter(id=2).values('info__is_marry')
-    print(ret)
 
-    # 查找住在深圳的作者的姓名(反向查找)
-    ret = AuthorInfo.objects.filter(city='惠州').values('author__name')
-    print(ret)
 
-    # 多对多基于QuerySet跨表查询
-    # 查询id=2的作者关联的所有数据的名称和价格(正向查找)
-    ret = Author.objects.filter(id=2).values('books__title', 'books__price')
-    print(ret)
-
-    # 查找id=2的作者的名字(反向查找)
-    ret = Book.objects.filter(id=2).values('author__name')
-    print(ret)
-
-    # 链式查询
-    # 查找id=2的书的作者的城市
-    ret = Book.objects.filter(id=2).values('author__info__city')
-    print(ret)

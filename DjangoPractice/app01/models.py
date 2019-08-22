@@ -64,8 +64,17 @@ class Author(models.Model):
     def __str__(self):
         return self.name
 
+
 # 作者详细信息表
 class AuthorInfo(models.Model):
     city = models.CharField(max_length=12)  # 住址
     is_marry = models.BooleanField()  # 婚否
     income = models.BigIntegerField()  # 收入
+
+
+class Employee(models.Model):
+    name = models.CharField(max_length=12)
+    age = models.IntegerField()
+    salary = models.IntegerField()
+    province = models.CharField(max_length=12)
+    dept = models.CharField(max_length=12)

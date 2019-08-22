@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eca4dc34-2ce7-40d6-ac1e-05db64398160" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/24668dd7-cb00-4c2f-b8aa-9405b8cf1af6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/553d8248-efcb-4655-be7c-42407c0b2b32.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9fdd9c2f-4b03-4acf-954b-14e8fbee909b.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoPractice/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoPractice/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app01/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app01/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
@@ -53,8 +50,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DjangoPractice/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1386">
-              <caret line="63" column="59" selection-start-line="63" selection-start-column="52" selection-end-line="63" selection-end-column="59" />
+            <state relative-caret-position="481">
+              <caret line="148" lean-forward="true" selection-start-line="148" selection-end-line="148" />
             </state>
           </provider>
         </entry>
@@ -62,8 +59,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DjangoPractice/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="404">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="e#648#680#0" expanded="true" />
               </folding>
@@ -74,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app01/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="57" column="12" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="12" />
+            <state relative-caret-position="382">
+              <caret line="79" column="42" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
               <folding>
                 <element signature="e#89#1088#0" />
                 <element signature="e#1125#1423#0" />
@@ -87,8 +84,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="163" column="24" lean-forward="true" selection-start-line="169" selection-start-column="30" selection-end-line="169" selection-end-column="34" />
+            <state relative-caret-position="272">
+              <caret line="211" column="10" selection-start-line="211" selection-start-column="10" selection-end-line="211" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -121,16 +118,16 @@
         <option value="$PROJECT_DIR$/DjangoPractice/__init__.py" />
         <option value="$PROJECT_DIR$/app01/templatetags/my_filter.py" />
         <option value="$PROJECT_DIR$/templates/element.html" />
-        <option value="$PROJECT_DIR$/DjangoPractice/settings.py" />
         <option value="$PROJECT_DIR$/templates/tmp.html" />
         <option value="$PROJECT_DIR$/app01/templatetags/my_extends.py" />
         <option value="$PROJECT_DIR$/templates/son-tmp.html" />
         <option value="$PROJECT_DIR$/templates/inclusion_tag_tmp.html" />
         <option value="$PROJECT_DIR$/app01/admin.py" />
         <option value="$PROJECT_DIR$/app01/views.py" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
-        <option value="$PROJECT_DIR$/app01/models.py" />
         <option value="$PROJECT_DIR$/DjangoPractice/urls.py" />
+        <option value="$PROJECT_DIR$/DjangoPractice/settings.py" />
+        <option value="$PROJECT_DIR$/app01/models.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/test.py" />
       </list>
     </option>
@@ -273,15 +270,15 @@
       <workItem from="1566106553006" duration="7809000" />
       <workItem from="1566225909973" duration="6315000" />
       <workItem from="1566313333064" duration="5559000" />
+      <workItem from="1566486095248" duration="3000000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29392000" />
+    <option name="totallyTimeSpent" value="32392000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.25869894" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -298,20 +295,20 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32764506" />
-      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32935154" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info active="true" anchor="right" id="Database" order="4" visible="true" weight="0.2065053" />
+      <window_info anchor="right" id="Database" order="4" weight="0.2065053" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/DjangoPractice$test.coverage" NAME="test Coverage Results" MODIFIED="1566318797806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DjangoPractice$test.coverage" NAME="test Coverage Results" MODIFIED="1566489176388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/DjangoPractice/wsgi.py">
@@ -459,13 +456,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DjangoPractice/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1386">
-          <caret line="63" column="59" selection-start-line="63" selection-start-column="52" selection-end-line="63" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/db/models/fields/related.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
@@ -498,24 +488,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://b1acc3ed-1172-4867-9ce7-d70b8b149cfe/schema/djangotest/table/app01_publisher">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="c5e937f3-02b7-4126-bcb0-69a671b24c27">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://b1acc3ed-1172-4867-9ce7-d70b8b149cfe/schema/djangotest/table/app01_book">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="c5e937f3-02b7-4126-bcb0-69a671b24c27">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://b1acc3ed-1172-4867-9ce7-d70b8b149cfe/schema/djangotest/table/app01_author_books">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state projectRestartId="c5e937f3-02b7-4126-bcb0-69a671b24c27">
@@ -525,20 +497,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://b1acc3ed-1172-4867-9ce7-d70b8b149cfe/schema/djangotest/table/app01_publisher">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="eed09a22-8f6f-4277-9466-8e2ea5103b19">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b1acc3ed-1172-4867-9ce7-d70b8b149cfe/schema/djangotest/table/app01_book">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="eed09a22-8f6f-4277-9466-8e2ea5103b19">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DjangoPractice/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="148" lean-forward="true" selection-start-line="148" selection-end-line="148" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DjangoPractice/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="404">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="e#648#680#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="das://b1acc3ed-1172-4867-9ce7-d70b8b149cfe/schema/djangotest/table/app01_employee">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="eed09a22-8f6f-4277-9466-8e2ea5103b19">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app01/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="57" column="12" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="12" />
+        <state relative-caret-position="382">
+          <caret line="79" column="42" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
           <folding>
             <element signature="e#89#1088#0" />
             <element signature="e#1125#1423#0" />
@@ -548,8 +554,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="163" column="24" lean-forward="true" selection-start-line="169" selection-start-column="30" selection-end-line="169" selection-end-column="34" />
+        <state relative-caret-position="272">
+          <caret line="211" column="10" selection-start-line="211" selection-start-column="10" selection-end-line="211" selection-end-column="10" />
         </state>
       </provider>
     </entry>
