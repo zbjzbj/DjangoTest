@@ -30,8 +30,7 @@ class Test(models.Model):
 class Userinfo(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=12)
-    birthday = models.DateTimeField(verbose_name='生日', null=True, auto_now_add=True)
-    sex = models.IntegerField(choices=[(1, '男'), (2, '女'), (3, '保密')], default=3)
+    password = models.CharField(max_length=18)
 
     def __str__(self):
         return self.name

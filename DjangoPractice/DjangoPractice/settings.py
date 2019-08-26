@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'utils.middlewares.mymiddleware.CheckLogin'
 ]
 
 ROOT_URLCONF = 'DjangoPractice.urls'
@@ -146,3 +147,7 @@ STATICFILES_DIRS = [
 #         },
 #     }
 # }
+
+# 中间件白名单
+WHITE_URLS = ['/login/']
+
