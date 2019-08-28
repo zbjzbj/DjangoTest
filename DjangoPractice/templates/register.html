@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+<form action="/register/" method="post" novalidate autocomplete="off">
+        {% csrf_token %}
+    {% for field in form_obj %}
+        <div>
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }} <span>{{ field.errors.0 }}</span>
+        </div>
+    {% endfor %}
+        <div>
+            <input type="submit" class="btn btn-success" value="注册">
+        </div>
+    </form>
+</body>
+</html>

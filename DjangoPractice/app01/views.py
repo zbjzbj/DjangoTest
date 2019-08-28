@@ -3,12 +3,25 @@ from functools import wraps
 from django import views
 from app01.models import *
 from django.http import JsonResponse
+from app01.my_forms import *
 
 
 # Create your views here.
 
 def tem(request):
     return render(request, "son-tmp.html", {"name": "小明"})
+
+def register(request):
+    form_obj = RegForm()
+    if request.method == "POST":
+        form_obj = RegForm(request.POST)
+        if form_obj.is_valid():
+            username = form_obj.cleaned_data.get('username')
+            pwd = form_obj.cleaned_data.get('password')
+            return redirect('/index/')
+        return render(request, 'register.html', {"form_obj": form_obj})
+    return render(request, 'register.html', {"form_obj": form_obj})
+
 
 ############## COOKIE 版登陆 ##############
 # def check_login(func):
