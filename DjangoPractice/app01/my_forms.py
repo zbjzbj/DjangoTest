@@ -2,8 +2,14 @@ from django import forms
 from app01.models import *
 from django.core.validators import RegexValidator
 
+class BootStrap(forms.Form):
+    def __init__(self, *args, **kwargs):
+        super(BootStrap, self).__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.widget.attrs.update({"class": "form-control"})
 
-class RegForm(forms.Form):
+
+class RegForm(BootStrap):
     username = forms.CharField(
         min_length=3,
         label='用户名',
@@ -58,6 +64,8 @@ class RegForm(forms.Form):
         widget=forms.widgets.TextInput(),
         validators=[RegexValidator(r'^1[3-9]\d{9}$', "手机号码不正确")]
     )
+
+
 #
 # ######### 在数据库中查询数据后展示出来 #########
 # # 方式一：
@@ -123,8 +131,42 @@ class RegForm(forms.Form):
 #     )
 
 ############### 钩子函数(hook) ###########
+from django.core.validators import RegexValidator
+from django.core.exceptions import ValidationError
 
 
+class HookForm(forms.Form):
+    name = forms.CharField(
+        label='用户名',
+        min_length=2,
+        max_length=6,
+        error_messages={'min_length': '用户名至少2位', 'max_length': '用户名最多12位'},
+        widget=forms.widgets.TextInput(attrs={'class': 'form-control'}),
+    )
+    pwd = forms.CharField(
+        label='密码',
+        min_length=6,
+        max_length=18,
+        widget=forms.widgets.PasswordInput()
+    )
+    re_pwd = forms.CharField(
+        min_length=6,
+        max_length=18,
+        label="确认密码",
+        required=False,  # 设置成不是必须要填的字段
+        widget=forms.widgets.PasswordInput(attrs={'class': 'form-control'})
+    )
 
+    def clean_name(self):
+        value = self.cleaned_data.get('name')
+        if 'sb' in value:
+            raise ValidationError("你才是sb")
+        return value
 
-
+    def clean(self):
+        pwd = self.cleaned_data.get('pwd')
+        re_pwd = self.cleaned_data.get('re_pwd')
+        if pwd == re_pwd:
+            return self.cleaned_data
+        self.add_error('re_pwd', '两次密码不一致')
+        raise ValidationError('两次密码不一致')
