@@ -29,8 +29,8 @@ class Test(models.Model):
 
 class Userinfo(models.Model):
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=12)
-    password = models.CharField(max_length=18)
+    name = models.CharField(max_length=12, verbose_name="用户名")
+    password = models.CharField(max_length=18, verbose_name="密码")
 
     def __str__(self):
         return self.name

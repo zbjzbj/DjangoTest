@@ -11,17 +11,38 @@ from app01.my_forms import *
 def tem(request):
     return render(request, "son-tmp.html", {"name": "小明"})
 
-def register(request):
-    form_obj = RegForm()
-    if request.method == "POST":
-        form_obj = RegForm(request.POST)
-        if form_obj.is_valid():
-            username = form_obj.cleaned_data.get('username')
-            pwd = form_obj.cleaned_data.get('password')
-            return redirect('/index/')
-        return render(request, 'register.html', {"form_obj": form_obj})
-    return render(request, 'register.html', {"form_obj": form_obj})
+# 正常注册
+# def register(request):
+#     form_obj = HookForm()
+#     if request.method == "POST":
+#         form_obj = HookForm(request.POST)
+#         if form_obj.is_valid():
+#             # 数据库中创建
+#             return redirect('/index/')
+#         return render(request, 'register.html', {"form_obj": form_obj})
+#     return render(request, 'register.html', {"form_obj": form_obj})
 
+
+# ajax注册
+def register(request):
+    if request.method == 'POST':
+        res = {'code': 0}
+        # 利用post提交的数据实例化form类
+        form_obj = RegModelForm(request.POST)
+        # 校验数据的有效性
+        if form_obj.is_valid():
+            form_obj.cleaned_data.pop('re_pwd')
+            # Userinfo.objects.create(**form_obj.cleaned_data)
+            # form_obj.save()
+            res['url'] = '/login/'
+        else:
+            # 数据有问题
+            res['code'] = 1
+            res['error_msg'] = form_obj.errors
+        return JsonResponse(res)
+
+    form_obj = RegModelForm()
+    return render(request, 'register.html', {'form_obj': form_obj})
 
 ############## COOKIE 版登陆 ##############
 # def check_login(func):

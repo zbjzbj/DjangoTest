@@ -2,9 +2,17 @@ from django import forms
 from app01.models import *
 from django.core.validators import RegexValidator
 
+
 class BootStrap(forms.Form):
     def __init__(self, *args, **kwargs):
         super(BootStrap, self).__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.widget.attrs.update({"class": "form-control"})
+
+
+class BootStraps(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(BootStraps, self).__init__(*args, **kwargs)
         for field in self.fields.values():
             field.widget.attrs.update({"class": "form-control"})
 
@@ -135,13 +143,13 @@ from django.core.validators import RegexValidator
 from django.core.exceptions import ValidationError
 
 
-class HookForm(forms.Form):
+class RegisterForm(BootStrap):
     name = forms.CharField(
         label='用户名',
         min_length=2,
         max_length=6,
         error_messages={'min_length': '用户名至少2位', 'max_length': '用户名最多12位'},
-        widget=forms.widgets.TextInput(attrs={'class': 'form-control'}),
+        widget=forms.widgets.TextInput(),
     )
     pwd = forms.CharField(
         label='密码',
@@ -154,7 +162,7 @@ class HookForm(forms.Form):
         max_length=18,
         label="确认密码",
         required=False,  # 设置成不是必须要填的字段
-        widget=forms.widgets.PasswordInput(attrs={'class': 'form-control'})
+        widget=forms.widgets.PasswordInput()
     )
 
     def clean_name(self):
@@ -167,6 +175,39 @@ class HookForm(forms.Form):
         pwd = self.cleaned_data.get('pwd')
         re_pwd = self.cleaned_data.get('re_pwd')
         if pwd == re_pwd:
+            return self.cleaned_data
+        self.add_error('re_pwd', '两次密码不一致')
+        raise ValidationError('两次密码不一致')
+
+
+# ModelForm
+class RegModelForm(BootStraps):
+    re_pwd = forms.CharField(
+        label='确认密码',
+        widget=forms.widgets.PasswordInput()
+    )
+
+    class Meta:
+        model = Userinfo
+        fields = '__all__'
+        # labels = {
+        #     "name": "用户名",
+        #     "password": "密码"
+        # }
+        error_messages = {
+            "name": {
+                "max_length": "最多输入12位"
+            }
+        }
+
+        widgets = {
+            'password': forms.widgets.PasswordInput()
+        }
+
+    def clean(self):
+        password = self.cleaned_data.get("password")
+        re_pwd = self.cleaned_data.get("re_pwd")
+        if password == re_pwd:
             return self.cleaned_data
         self.add_error('re_pwd', '两次密码不一致')
         raise ValidationError('两次密码不一致')
